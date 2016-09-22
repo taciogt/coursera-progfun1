@@ -9,17 +9,17 @@ import org.scalatest.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class CountChangeSuite extends FunSuite {
   import Main.countChange
-//  test("countChange: caso mais simples") {
-//    assert(countChange(4,List(1)) === 1)
-//  }
-//
-//  test("countChange: example given in instructions") {
-//    assert(countChange(4,List(1,2)) === 3)
-//  }
-//
-//  test("countChange: caso um pouco complexo") {
-//    assert(countChange(5,List(1,2)) === 3)
-//  }
+  test("countChange: caso mais simples") {
+    assert(countChange(4,List(1)) === 1)
+  }
+
+  test("countChange: example given in instructions") {
+    assert(countChange(4,List(1,2)) === 3)
+  }
+
+  test("countChange: caso um pouco complexo") {
+    assert(countChange(5,List(1,2)) === 3)
+  }
 
   test("countChange: caso um pouco complexo 2") {
     assert(countChange(5,List(1,2,6)) === 3)
