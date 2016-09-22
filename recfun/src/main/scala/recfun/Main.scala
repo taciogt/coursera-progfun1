@@ -70,20 +70,13 @@ object Main {
     * Exercise 3
     */
   def countChange(money: Int, coins: List[Int]): Int = {
-    var count = 0
-    var remainingMoney = money
-    if (money % coins.last == 0) {
-      count += 1
-      remainingMoney -= coins.last
+    def countLoop(remainingMoney: Int, coins: List[Int]): Int = {
+      if (remainingMoney < 0 || coins.isEmpty) 0
+      else if (remainingMoney == 0) 1
+      else countLoop(remainingMoney, coins.init) + countLoop(remainingMoney - coins.last, coins)
     }
 
-    while(remainingMoney >= 0 && coins.length > 1) {
-      count += countChange(money - remainingMoney, coins.init)
-      
-      remainingMoney -= coins.last
-    }
-
-    count
+    countLoop(money, coins)
   }
 
 }
