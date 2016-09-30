@@ -2,8 +2,8 @@
 
 // sums ints from a to b
 def sumInts(a: Int, b: Int): Int =
-if (a > b) 0
-else a + sumInts(a + 1, b)
+  if (a > b) 0
+  else a + sumInts(a + 1, b)
 
 sumInts(1, 5) // 1 + 2 + 3 + 4 + 5 = 15
 
