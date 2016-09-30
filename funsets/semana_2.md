@@ -1,7 +1,7 @@
 # Semana 2
 
 ### Aula 1: Funções de ordem superior
-[higher_order_functions.sc](/src/main/scala/funsets/higher_orders_funcs.sc)
+[higher_order_functions.sc](/funsets/src/main/scala/funsets/higher_orders_funcs.sc)
 
 
 Funções são cidadãos de primeira classe, significa que podem ser passadas como parâmetros ou retornadas por outra função.
