@@ -32,3 +32,29 @@ sumInts2(1, 5)
 sum(cube, 1, 3)
 def sumCubes2(a: Int, b: Int): Int = sum(cube, a, b)
 sumCubes2(1, 3)
+
+
+
+
+// exercises
+// productFunction
+def prodInts(f: Int => Int, a: Int, b: Int): Int =
+  if (a > b) 1
+  else f(a) * prodInts(f, a + 1, b)
+
+// factorial defined from productFunction
+def factorial(a: Int, b: Int): Int = prodInts(id, a, b)
+
+factorial(1, 4) // 1 * 2 * 3 * 4 = 24
+
+// tail recursion version of sumInts:
+def sumTail(f: Int => Int)(a: Int, b: Int): Int = {
+  def loop(a: Int, acc: Int): Int = {
+    if (a > b) acc
+    else loop(a + 1, acc + f(a))
+  }
+  loop(a, 0)
+}
+
+sumTail(id)(1, 5) // 1 + 2 + 3 + 4 + 5 = 15
+

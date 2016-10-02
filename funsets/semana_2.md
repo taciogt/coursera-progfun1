@@ -6,7 +6,7 @@
 
 Funções são cidadãos de primeira classe, significa que podem ser passadas como parâmetros ou retornadas por outra função.
 
-Funções sumInts e sumCubes são formas recursivas de fazer um cálculo parecido.
+Funções sumInts e sumCubes são formas recursivas de fazer um cálculo parecido: a soma dos inteiros entre a e b, ou a soma do cubo dos inteiros entre a e b.
 
 ```scala
 def sumInts(a: Int, b: Int): Int =
@@ -28,9 +28,26 @@ sumCubes(1, 3) // 1 + 8 + 27 = 36
 
 ```
 
-Essa ligeira diferença entre elas pode ser generalizada parametrizando o trecho que as difenrencia. (Strategy?) 
+Essa ligeira diferença entre elas pode ser generalizada parametrizando o trecho que as diferencia. Essa generalização lembra, de forma mais simples, o padrão de projeto [template method](https://sourcemaking.com/design_patterns/template_method).
 
 Exemplo:
+```scala
+def sum(f: Int => Int, a: Int, b: Int): Int =
+  if (a > b) 0
+  else f(a) + sum(f, a + 1, b)
+```
+
+Tipos de funções:
+**A => B** é o tipo de uma função, que recebe como entrada um parâmetro do tipo A e retorna uma variável do tipo B.
+
+Funções anônimas:
+Funções anônimas são "açúcar sintático" para evitar a definição de muitas funções muito simples apenas para serem passadas como parâmetro para outra função;
+
+```scala
+(x: Int) => x * x * x
+(x: Int, y: Int) => x + y
+```
+
 
 
 ## Aula 2: 
