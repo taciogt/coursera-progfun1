@@ -38,9 +38,11 @@ def sum(f: Int => Int, a: Int, b: Int): Int =
 ```
 
 Tipos de funções:
+
 **A => B** é o tipo de uma função, que recebe como entrada um parâmetro do tipo A e retorna uma variável do tipo B.
 
 Funções anônimas:
+
 Funções anônimas são "açúcar sintático" para evitar a definição de muitas funções muito simples apenas para serem passadas como parâmetro para outra função;
 
 ```scala
@@ -49,6 +51,5 @@ Funções anônimas são "açúcar sintático" para evitar a definição de muit
 ```
 
 
-
-## Aula 2: 
-
+### Aula 2: Currying
+TODO: preencher a aula
