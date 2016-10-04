@@ -53,3 +53,41 @@ Funções anônimas são "açúcar sintático" para evitar a definição de muit
 
 ### Aula 2: Currying
 TODO: preencher a aula
+
+
+### Class 3: Finding Fixed Points
+
+[finding_fixed_points.sc](/funsets/src/main/scala/funsets/finding_fixed_points.sc)
+
+x is a fixed point of a function f if ```f(x) = x```
+
+For some functions, we can estimate the fixed points iterating this way:
+> x, f(x), f(f(x)), f(f(f(x))), ...
+
+Until the value does not vary or the change is small enough.
+
+We can find this point in a given function _f_ this way:
+  
+```scala
+import math.abs
+
+val tolerance = 0.0001
+def isCloseEnough(x: Double, y: Double) =
+  abs((x - y) / x) / x < tolerance
+
+def fixedPoint(f: Double => Double)(firstGuess: Double) = {
+  def iterate(guess: Double): Double = {
+    val next = f(guess)
+    if (isCloseEnough(guess, next)) next
+    else iterate(next)
+  }
+  iterate(firstGuess)
+}
+```
+
+Inspired by this definition of a fixed point, we can give a new specification  for the square root function.
+sqrt(x) is the number y such that y * y = x.
+sqrt(x) is the number y such that y = x / y.
+sqrt(x) is the the fixed point of the function f(y) = x / y
+
+ 
