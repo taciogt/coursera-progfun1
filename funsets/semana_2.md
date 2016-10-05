@@ -85,9 +85,30 @@ def fixedPoint(f: Double => Double)(firstGuess: Double) = {
 }
 ```
 
-Inspired by this definition of a fixed point, we can give a new specification  for the square root function.
-sqrt(x) is the number y such that y * y = x.
-sqrt(x) is the number y such that y = x / y.
-sqrt(x) is the the fixed point of the function f(y) = x / y
+Inspired by this definition of a fixed point, we can give a new specification for the square root function:
+> sqrt(x) is the number y such that y * y = x.
+> 
+> sqrt(x) is the number y such that y = x / y.
+> 
+> sqrt(x) is the the fixed point of the function f(y) = x / y
 
+We can calculate the square root iterating towards the fixed point:
+```scala
+def sqrt(x: Double) = fixedPoint(y => x / y)(1.0)
+```
+
+This case does not converge, it oscilates between 1 and 2. We can prevent it by averaging successive values (damping):
  
+```scala
+def sqrt(x: Double) = fixedPoint(y => (y + x / y) / 2)(1.0)
+```
+
+This technique is general enough to be abstracted into its own function:
+```scala
+def averageDamp(f: Double => Double)(x: Double) = (x + f(x)) / 2
+```
+
+Now we can write de square root function in a more concise manner:
+```scala
+def sqrt2(x: Double) = fixedPoint( averageDamp(y => x / y) )(1.0)
+```
