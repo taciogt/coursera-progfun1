@@ -112,3 +112,14 @@ Now we can write de square root function in a more concise manner:
 ```scala
 def sqrt2(x: Double) = fixedPoint( averageDamp(y => x / y) )(1.0)
 ```
+
+### Class 4: Scala Syntax Summary
+
+TODO: fill this section
+
+### Class 5: Functions and Data
+
+[functions_and_data.sc](/funsets/src/main/scala/funsets/functions_and_data.sc)
+
+TODO: fill this section
+
