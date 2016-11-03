@@ -123,3 +123,6 @@ TODO: fill this section
 
 TODO: fill this section
 
+### Class 6: More Fun With Rationals
+
+[functions_and_data.sc](/funsets/src/main/scala/funsets/functions_and_data.sc)
