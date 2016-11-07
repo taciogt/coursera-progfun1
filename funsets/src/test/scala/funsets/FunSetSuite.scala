@@ -98,9 +98,9 @@ class FunSetSuite extends FunSuite {
        * the test fails. This helps identifying which assertion failed.
        */
       assert(contains(s1, 1), "Singleton")
-      assert(contains(s1, 2) === false, "Singleton s1 dont contains 2")
+      assert(!contains(s1, 2), "Singleton s1 dont contains 2")
 
-      assert(contains(s2, 1) === false, "Singleton s2 dont contains 1")
+      assert(!contains(s2, 1), "Singleton s2 dont contains 1")
       assert(contains(s2, 2), "Singleton s2 contains 2")
 
     }
