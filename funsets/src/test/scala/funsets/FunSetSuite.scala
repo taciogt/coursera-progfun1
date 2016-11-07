@@ -78,13 +78,13 @@ class FunSetSuite extends FunSuite {
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
     val s4 = singletonSet(4)
-    val s5 = singletonSet(5)
-    val s6 = singletonSet(6)
 
     val union1and2 = union(s1, s2)
     val union3and4 = union(s3, s4)
 
     val oneToFour = union(union1and2, union3and4)
+
+    val evenNumbers = filter(oneToFour, x => x % 2 == 0)
   }
 
   /**
@@ -135,12 +135,17 @@ class FunSetSuite extends FunSuite {
 
   test("filter") {
     new TestSets {
-      val evenNumbers = filter(oneToFour, x => x % 2 == 0)
-
       assert(!contains(evenNumbers, 1), "1 is odd")
       assert(contains(evenNumbers, 2), "2 is even")
       assert(!contains(evenNumbers, 3), "3 is odd")
       assert(contains(evenNumbers, 4), "4 is even")
+    }
+  }
+
+  test("forall") {
+    new TestSets {
+      assert(forall(oneToFour, x => x <= 4), "all element in one to four are lower than four")
+      assert(!forall(oneToFour, x => x % 2 == 0), "NOT all element in one to four are even")
     }
   }
 
