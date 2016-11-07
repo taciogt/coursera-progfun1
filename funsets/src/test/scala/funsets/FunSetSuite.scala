@@ -77,6 +77,10 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+
+    val union1and2 = union(s1, s2)
+    val union1and3 = union(s1, s3)
+    val union2and3 = union(s2, s3)
   }
 
   /**
@@ -111,6 +115,16 @@ class FunSetSuite extends FunSuite {
       val s = union(s1, s2)
       assert(contains(s, 1), "Union 1")
       assert(contains(s, 2), "Union 2")
+      assert(!contains(s, 3), "Union 3")
+    }
+  }
+
+  test("intersect contains elements that belong to both sets") {
+    new TestSets {
+      val s = intersect(union1and2, s1)
+
+      assert(contains(s, 1), "Union 1")
+      assert(!contains(s, 2), "Union 2")
       assert(!contains(s, 3), "Union 3")
     }
   }
