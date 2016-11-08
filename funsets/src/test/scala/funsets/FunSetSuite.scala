@@ -149,5 +149,12 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("exists") {
+    new TestSets {
+      assert(exists(oneToFour, x => x < 10), "there is an element between one to four that is below ten")
+      assert(!exists(oneToFour, x => x < 0), "there is no element in one to four lower than zero")
+    }
+  }
+
 
 }
