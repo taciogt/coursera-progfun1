@@ -156,5 +156,17 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("map") {
+    new TestSets {
+      val s = map(oneToFour, x => x * x)
+
+      assert(contains(s, 1), "1 = 1^2")
+      assert(contains(s, 4), "2^2 = 4")
+      assert(contains(s, 9), "3^2 = 9")
+      assert(contains(s, 16), "4^ = 16")
+
+    }
+  }
+
 
 }
