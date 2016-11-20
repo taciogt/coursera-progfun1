@@ -1,6 +1,5 @@
 # Scala 101
-Repository with weekly assignments and some hands code learning generated 
-https://www.coursera.org/learn/progfun1
+Repository with weekly assignments and some hands on code learning about Coursera's course Functional Programming Principles in Scala: https://www.coursera.org/learn/progfun1.
 
 ## Index
 * Week 2: [Higher Order Functions](/funsets/semana_2.md)
