@@ -59,4 +59,84 @@ Concurrency:
 * Software transactional memory
 * Future
 
-time to continue: 10:00
+
+### Live examples
+
+A class in Java:
+```java
+public class Person {
+    public final String name;
+    public final int age;
+    Person(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+and in Scala:
+```scala
+class Person(val name: String, val age: Int)
+```
+
+> "In Java you say everything three times, in Scala you say only once."
+
+And how do you sort an array in Java?
+
+
+```java
+import java.util.ArrayList;
+...
+Person[] people;
+Person[] minors;
+Person[] adults;
+
+{
+    ArrayList<Person> minorsList = new ArrayList<Person>()
+    ArrayList<Person> adultsList = new ArrayList<Person>()
+    for (int i = 0; i < people.length; i++)
+        (people[i].age < 18 ? minorstList : adultsList).add(people[i]);
+    minors = minorsList.toArray(people);
+    adults = adultsList.toArray(people);
+}
+```
+
+And in Scala:
+
+```scala
+val people: Array[Person]
+val (minors, adults) = people partition (_.age < 18)
+```
+
+And how to tune this stuff to run in parallel? 
+In Java it isn't so simple. You have to use threads and maybe some locks.
+In Scala, you just have to add a `.par` to the array:
+
+```scala
+val people: Array[Person]
+val (minors, adults) = people.par partition (_.age < 18)
+```
+
+Scala also have actors for concurrent programming:
+
+* Simple message-oriented programming model for multi-threading;
+* Serializes access to shared resources using queues and function passing;
+* Easier for programmers to create reliable concurrent processing
+* Many sources of contention, races, locking and dead-locks removed
+
+Example:
+```scala
+class Person(val name: String, val age: Int)
+
+actor{
+  receive {
+  case people: Set[Person] => 
+    val (minors, adults) = people partition (_.age < 18)
+    Facebook ! minors
+    LinkedIn ! adults
+  
+  }
+}
+```
+
+The last example shows how Scala can be used as the domain embedding language to enable intensive parallel optimization to a variety of applications.  

@@ -41,6 +41,6 @@ Some benefits of FP:
 * better modularity
 * good for exploiting parallelism in multicore and cloud computing
 
-TODO: continue to watch the video [Working Hard to Keep It Simple](/docs/working_hard_to_keep_it_simple.md)
+Extra content recommended: [Working Hard to Keep It Simple](/docs/working_hard_to_keep_it_simple.md)
 
     
