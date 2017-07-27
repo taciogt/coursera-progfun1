@@ -43,4 +43,67 @@ Some benefits of FP:
 
 Extra content recommended: [Working Hard to Keep It Simple](/docs/working_hard_to_keep_it_simple.md)
 
-    
+## Elements of Programming
+
+Every non-trivial programming language provides:
+* primitive expressions;
+* ways to combine expressions;
+* ways to abstract expressions, which introduce a name for an expression by which it can be referenced to;
+
+REPL (Read-Eval-Print-Loop): functional programming is a bit like using a calculator.
+
+A non-primitive expression is evaluated as follows:
+1. Take the leftmost operator;
+2. Evaluate its operands (left before right);
+3. Apply the operator to the operands;
+
+A name is evaluated by replacing it with the right hand side of its definition
+The evaluation process stops once it results ina  vallue
+A value is a number (for the moment). Later on there will be other kinds of values.
+
+Example:
+```scala
+scala> val pi = 3.14
+scala> def radius = 10
+scala> (2 * pi) * radius
+// (2 * pi) * radius
+// (2 * 3.14) * radius
+// 6.28 * radius
+// 6.28 * 10
+// 62.8
+62.8
+```
+
+Applications of parameterized functions are evaluated in a similar way as operators
+1. Evaluate all function arguments, from left to right;
+2. Replace the function application by function' right-hand side, and, at the same time;
+3. Replace all formal parameters of the function by the actual arguments;
+
+Example:
+```scala
+scala> def square(x: Double) = x * x
+scala> def sumOfSquares(x: Double, y: Double) = square(x) + square(y)
+scala> sumOfSquares(3, 2+2)
+// sumOfSquares(3, 4)
+// square(3) + square(4)
+// 3 * 3 + square(4)
+// 9 + square(4)
+// 9 + 4 * 4
+// 9 + 16
+// 25
+25
+```
+
+This scheme of expression is called substitution model, the underlying idea is that all evaluation does is reduce an expression to a value.
+It can be applied to all expressions, as long as they have **no side effect**.
+This model is formalized in the *λ-calculus*, which gives a foundation for functional programming.
+
+What is a side effect? Side effects cannot be expressed by the substitution model.
+
+Does every expression reduce to a value (in a finite number of steps)? No. Counter example: `def loop: Int = loop`  
+
+### Evaluation strategies:
+Changing the evaluation strategy: One can alternatively apply the function to unreduced arguments.
+
+* *call-by-value*: evaluates every function argument only once;
+* *call-by-value*: the function argument is not evaluated if the corresponding parameter is unused in the evaluation of the function body;
