@@ -41,7 +41,7 @@ abstract class TweetSet {
    * Question: Can we implment this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-    def filter(p: Tweet => Boolean): TweetSet = ???
+    def filter(p: Tweet => Boolean): TweetSet = new Empty
   
   /**
    * This is a helper method for `filter` that propagetes the accumulated tweets.
