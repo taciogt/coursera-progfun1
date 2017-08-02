@@ -1,6 +1,6 @@
 # Week 1: Functions & Evaluation
 
-## Programming Paradigms
+## 1.1 Programming Paradigms
 Paradigm: distinct concepts or **thought patterns** in some scientific discipline.
 
 Main programming paradigms: imperative (Java, C, ...), functional (Lisp, Haskell, Scala, ...) and logic (Prolog, ASP).
@@ -43,7 +43,7 @@ Some benefits of FP:
 
 Extra content recommended: [Working Hard to Keep It Simple](/docs/working_hard_to_keep_it_simple.md)
 
-## Elements of Programming
+## 1.2 Elements of Programming
 
 Every non-trivial programming language provides:
 * primitive expressions;
@@ -58,7 +58,7 @@ A non-primitive expression is evaluated as follows:
 3. Apply the operator to the operands;
 
 A name is evaluated by replacing it with the right hand side of its definition
-The evaluation process stops once it results ina  vallue
+The evaluation process stops once it results in a value.
 A value is a number (for the moment). Later on there will be other kinds of values.
 
 Example:

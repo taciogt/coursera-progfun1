@@ -8,6 +8,6 @@ It does not intend to teach new concepts or present new ideas. It is a study met
 * Week 2: [Higher Order Functions](/funsets/semana_2.md)
 * Week 3: [Data and Abstraction](/objsets/week_3.md)
 
-Links úteis:
-Guideline do twitter com boas práticas de Scala
-http://twitter.github.io/effectivescala/
+
+Useful links:
+* Twitter style guide for Scala good practices: http://twitter.github.io/effectivescala/
